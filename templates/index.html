@@ -1,21 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>My home page</title>
-    </head>
+{% extends "base.html" %}
 
-    <body>
-        <h1>Welcome to my homepage!</h1>
+{% block title %}Welcome{% endblock title %}
 
-        <p>I am very proud of it :)</p>
+{% block content %}
+<div class="row mt-4">
+    <div class="col-md-5">
+    {% if user %}
+        <h1>Welcome, {{user.username}}!</h1>
+    {% else %}
+        <h1>Welcome, stranger!</h1>
+    {% endif %}
 
-        <form method="post" action="/">
-        <p>
-            Please enter your name: <input type="text" name="your-name">
-        </p>
+    <img src="/static/img/smartninja-logo.png">
+    </div>
+</div>
+{% endblock content %}
 
-        <button type="submit">Submit</button>
-    </form>
-    </body>
-</html>
+
+
