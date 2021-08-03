@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ topic.title }}{% endblock title %}
+
+{% block content %}
+
+<h1>{{ topic.title }}</h1>
+
+<small>Posted by {{ topic.author.username }} on {{ topic.created.strftime('%d %b %Y') }}</small>
+
+{% if user.id == topic.author.id %}
+<p>
+    <a href="/topic/{{topic.id}}/edit">Edit</a> |
+    <a href="/topic/{{topic.id}}/delete">Delete</a>
+</p>
+{% endif %}
+
+<p class="mt-2">{{ topic.text }}</p>
+
+{% endblock content %}

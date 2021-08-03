@@ -11,6 +11,23 @@
         <h1>Welcome, stranger!</h1>
     {% endif %}
 
+    <table border="1">
+    <tr>
+        <th>Topic</th>
+        <th>Author</th>
+        <th>Date created</th>
+    </tr>
+
+    {% for topic in topics %}
+    <tr>
+        <td><a href="/topic/{{topic.id}}">{{ topic.title }}</a></td>
+        <td>{{ topic.author.username }}</td>
+        <td>{{ topic.created }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
     <img src="/static/img/smartninja-logo.png">
     </div>
 </div>
